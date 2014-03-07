@@ -98,6 +98,18 @@ class ConfigurationServiceTest extends AppTest {
     ParamDuration.get() shouldEqual duration
   }
 
+  it should "work for Boolean keys" in rollback { implicit session =>
+  // SETUP define FiniteDuration key
+    val booleanParam = ConfigurationParam[Boolean]("booleanKey")
+
+    // WHEN save it
+    val boolean = true
+    booleanParam.saveValue(boolean)
+
+    // THEN it should be set
+    booleanParam.get() shouldEqual boolean
+  }
+
   it should "update value by key" in rollback { implicit session =>
     // SETUP define key
     val ParamInt = ConfigurationParam[Int]("intKey")

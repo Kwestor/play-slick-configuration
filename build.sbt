@@ -2,11 +2,13 @@ organization := "org.virtuslab"
 
 name := "play-slick-configuration"
 
-version := "0.1"
+version := "0.2"
 
 scalaVersion := "2.10.3"
 
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
+resolvers += Resolver.typesafeRepo("releases")
 
 libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick" % "1.0.1",

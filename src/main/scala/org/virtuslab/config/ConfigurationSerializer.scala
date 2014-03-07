@@ -68,4 +68,11 @@ object ConfigurationSerializer {
 
     def read(a: String) = JDuration.parse(a)
   }
+
+  /** [[scala.Boolean]] serializer */
+  implicit val booleanSerializer = new ConfigurationSerializer[Boolean] {
+    def write(a: Boolean) = a.toString
+
+    def read(a: String) = a.toBoolean
+  }
 }
