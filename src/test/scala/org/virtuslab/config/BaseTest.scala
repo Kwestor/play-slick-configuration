@@ -4,7 +4,6 @@ import org.scalatest._
 import play.api.db.slick.Config.driver.simple._
 import play.api.Play
 import play.api.db.slick.DB
-import scala.slick.session.Session
 import play.api.test.FakeApplication
 
 trait BaseTest extends FlatSpecLike with Matchers
@@ -31,6 +30,8 @@ trait AppTest extends BaseTest with BeforeAndAfterEach {
     super.afterEach()
   }
 
+  private lazy val configurationEntries: TableQuery[ConfigurationEntries] = TableQuery[ConfigurationEntries]
+
   /**
    * Runs function in rolled-back transaction.
    *
@@ -40,7 +41,7 @@ trait AppTest extends BaseTest with BeforeAndAfterEach {
    */
   def rollback[A](func: Session => A): A = DB.withTransaction {
     implicit session: Session =>
-      ConfigurationEntries.ddl.create
+      configurationEntries.ddl.create
       val out = func(session)
       session.rollback()
       out

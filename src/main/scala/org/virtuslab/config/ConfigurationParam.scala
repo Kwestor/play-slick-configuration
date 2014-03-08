@@ -1,6 +1,6 @@
 package org.virtuslab.config
 
-import scala.slick.session.Session
+import play.api.db.slick.Config.driver.simple._
 
 /**
  * Class for easy configuration management.

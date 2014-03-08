@@ -12,12 +12,12 @@ private[config] case class ConfigurationEntry(key: String, value: String)
 /**
  * DB table for configuration.
  */
-object ConfigurationEntries extends Table[ConfigurationEntry]("configuration") {
+class ConfigurationEntries(tag: Tag) extends Table[ConfigurationEntry](tag, "configuration") {
 
   def key = column[String]("key", O.PrimaryKey)
 
   def value = column[String]("value")
 
-  def * = key ~ value <> (ConfigurationEntry.apply _, ConfigurationEntry.unapply _)
+  def * = (key, value) <> (ConfigurationEntry.tupled, ConfigurationEntry.unapply)
 
 }

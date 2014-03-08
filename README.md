@@ -19,8 +19,10 @@ Library is not currently in any repository, so you have to download it and use `
 If you install it locally (`sbt publishLocal`) you can add it to your projects using:
 
 ```scala
-libraryDependencies += "org.virtuslab" %% "play-slick-configuration" % "0.1-SNAPSHOT"
+libraryDependencies += "org.virtuslab" %% "play-slick-configuration" % "1.0"
 ```
+
+Master is built against Slick 2.x, for Slick 1.x use [slick-1.0](https://github.com/Kwestor/play-slick-configuration/tree/slick-1.0) branch.
 
 Examples
 ========
@@ -53,9 +55,7 @@ CREATE TABLE configuration
 Usage
 -----
 
-```scala
-
-```
+`TODO`
 
 Extensions
 ----------
