@@ -19,8 +19,10 @@ Library is not currently in any repository, so you have to download it and use `
 If you install it locally (`sbt publishLocal`) you can add it to your projects using:
 
 ```scala
-libraryDependencies += "org.virtuslab" %% "play-slick-configuration" % "0.1-SNAPSHOT"
+libraryDependencies += "org.virtuslab" %% "play-slick-configuration" % "0.2"
 ```
+
+This branch is built against Slick 1.x, for 2.x use master instead.
 
 Examples
 ========
@@ -53,9 +55,7 @@ CREATE TABLE configuration
 Usage
 -----
 
-```scala
-
-```
+`TODO`
 
 Extensions
 ----------
